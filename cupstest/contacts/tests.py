@@ -12,7 +12,7 @@ class ContactModelTest(TestCase):
         contact.bio = 'My bio'
         contact.contacts = 'contacts'
 
-        contact.Save()
+        contact.save()
 
         all_contacts = Contact.objects.all()
         self.assertEqual(len(all_contacts), 1)
