@@ -1,4 +1,4 @@
-project=cupstest
+
 
 clean:
 	-rm -rf build
@@ -7,4 +7,4 @@ clean:
 
 # run unit tests
 test: clean
-	python $(project)/manage.py test
+	python manage.py test
