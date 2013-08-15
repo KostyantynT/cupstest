@@ -7,4 +7,4 @@ clean:
 
 # run unit tests
 test: clean
-	python manage.py test
+	python manage.py test contacts
