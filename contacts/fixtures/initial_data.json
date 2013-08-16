@@ -1,0 +1,22 @@
+[
+{
+  "pk": 1, 
+  "model": "contacts.contactdetail", 
+  "fields": {
+    "other": "other....", 
+    "jabber": "jabber", 
+    "email": "admin@admin.com", 
+    "skype": "skype"
+  }
+},
+{
+  "pk": 1, 
+  "model": "contacts.contact", 
+  "fields": {
+    "bio": "bio info", 
+    "surname": "Surname", 
+    "name": "Name", 
+    "birthdate": "1982-08-16T21:39:37Z"
+  }
+}
+]

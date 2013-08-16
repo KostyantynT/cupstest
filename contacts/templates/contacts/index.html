@@ -1,0 +1,42 @@
+<html lang='en'>
+<head>
+<title>42 Coffee Cups Test Assignment</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "contacts/css/styles.css" %}" type="text/css" media="screen" />
+</head>
+<body>
+	<p>
+		<h1>42 Coffee Cups Test Assignment</h1>
+	</p>
+	<div>
+		<div class='left'>
+			<p>
+				Name <b>{{ contact.name }}</b>
+			</p>
+			<p>
+				Last name&nbsp; <b>{{ contact.surname }}</b>
+			</p>
+			<p>
+				Date of birth <b>{{ contact.birthdate }}</b>
+			</p>
+			<p>Bio:</p>
+			<p>{{ contact.bio }}</p>
+		</div>
+
+		<div class='left'>
+			<p>Contacts</p>
+			<p>
+				Email <b>{{ contact.contactdetails.email }}</b>
+			</p>
+			<p>
+				Jabber <b>{{ contact.contactdetails.jabber }}</b>
+			</p>
+			<p>
+				Skype <b>{{ contact.contactdetails.skype }}</b>
+			</p>
+			<p>Other contacts</p>
+			<p>{{ contact.contactdetails.other }}</p>
+		</div>
+	</div>
+</body>
+</html>

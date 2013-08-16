@@ -1,0 +1,21 @@
+body{
+	margin-left:20px;
+	margin-right:20px;
+}
+h1{
+	font-size: 22px; 
+	padding: 2px; 
+	font-family: Georgia,serif; 
+	line-height: 26px; 
+	font-weight: normal;
+}
+p{
+	font-size: 14px; 
+	padding: 2px; 
+	font-family: Georgia,serif; 
+	line-height: 18px;
+}
+.left{
+	width:50%;
+	float:left;
+}

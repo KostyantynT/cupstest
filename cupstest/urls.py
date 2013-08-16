@@ -5,8 +5,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^contacts/', include('contacts.urls')),
     # Examples:
-    # url(r'^$', 'cupstest.views.home', name='home'),
+    # url(r'^$', 'cupstest.views.index', name='index'),
     # url(r'^cupstest/', include('cupstest.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -25,3 +25,25 @@ class AdminTest(LiveServerTestCase):
         self.assertIn('Site administration', body.text)
         contact_links = self.browser.find_elements_by_link_text('Contacts')
         self.assertEqual(len(contact_links), 2)
+        
+class ContactTest(LiveServerTestCase):
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
+        
+    def tearDown(self):
+        self.browser.quit()
+        
+    def test_checking_detail_page(self):
+        self.browser.get(self.live_server_url+'/contacts/')
+        body = self.browser.find_element_by_tag_name('body')
+        self.assertIn('42 Coffee Cups Test Assignment', body.text)
+        
+        self.assertIn('Name', body.text)
+        self.assertIn('Surname', body.text)
+        self.assertIn('bio info', body.text)
+        self.assertIn('1982', body.text)
+        self.assertIn('skype', body.text)
+        self.assertIn('admin@admin.com', body.text)
+        self.assertIn('jabber', body.text)
+        self.assertIn('other....', body.text)
