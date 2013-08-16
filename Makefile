@@ -7,4 +7,5 @@ clean:
 
 # run unit tests
 test: clean
+	python manage.py migrate contacts
 	python manage.py test contacts
