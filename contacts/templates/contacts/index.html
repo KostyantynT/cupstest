@@ -1,13 +1,5 @@
-<html lang='en'>
-<head>
-<title>42 Coffee Cups Test Assignment</title>
-{% load staticfiles %}
-<link rel="stylesheet" href="{% static "contacts/css/styles.css" %}" type="text/css" media="screen" />
-</head>
-<body>
-	<p>
-		<h1>42 Coffee Cups Test Assignment</h1>
-	</p>
+{% extends "__base.html" %}
+{% block content %} 
 	<div>
 		<div class='left'>
 			<p>
@@ -38,5 +30,4 @@
 			<p>{{ contact.contactdetails.other }}</p>
 		</div>
 	</div>
-</body>
-</html>
+{% endblock %}
