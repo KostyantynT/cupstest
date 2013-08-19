@@ -19,3 +19,17 @@ p{
 	width:50%;
 	float:left;
 }
+
+.clear{
+	clear:both;
+}
+
+table{
+	width:100%;
+}
+td{
+	text-align: center;
+}
+table tr td:last-child,th:last-child{
+	text-align: left;
+}

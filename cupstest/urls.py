@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^contacts/', include('contacts.urls')),
+    url(r'^middleware/', include('middleware.urls')),
     # Examples:
     # url(r'^$', 'cupstest.views.index', name='index'),
     # url(r'^cupstest/', include('cupstest.foo.urls')),

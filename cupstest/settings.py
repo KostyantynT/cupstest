@@ -100,6 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.RequestMiddleware.RequestMiddleware',
 )
 
 ROOT_URLCONF = 'cupstest.urls'
@@ -127,6 +128,7 @@ INSTALLED_APPS = (
     'south',
     'tests',
     'contacts',
+    'middleware',
 )
 
 # A sample logging configuration. The only tangible logging
