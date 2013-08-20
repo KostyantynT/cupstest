@@ -4,5 +4,3 @@ argparse==1.2.1
 mock==1.0.1
 selenium==2.35.0
 wsgiref==0.1.2
-python==2.7.5
-
