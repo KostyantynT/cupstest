@@ -6,7 +6,6 @@ from django.db import models
 
 
 class Migration(SchemaMigration):
-
     def forwards(self, orm):
         # Adding model 'ContactDetail'
         db.create_table(u'contacts_contactdetail', (
