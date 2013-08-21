@@ -89,7 +89,7 @@ SECRET_KEY = '$49^s4im$u@aa#!5#+epa!cy5+dqf3f73cj2xx(q7%d+h&1n#v'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'tests',
     'contacts',
     'middleware',
+    'cupstest'
 )
 
 # A sample logging configuration. The only tangible logging

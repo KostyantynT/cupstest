@@ -1,0 +1,12 @@
+{% extends "__base.html" %}
+{% block content %}
+
+<form action="{{ action }}" method="POST">
+  {% csrf_token %}
+  {% for field in form %}
+  {{ field }}
+  {% endfor %}
+  <input type="submit" value="Save" />
+</form>
+
+{% endblock %}
