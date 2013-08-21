@@ -8,7 +8,6 @@ clean:
 # run unit tests
 test: clean
 	python manage.py syncdb --noinput
-	python manage.py flush --noinput
 	python manage.py migrate contacts
 	python manage.py migrate middleware
 	python manage.py test contacts
