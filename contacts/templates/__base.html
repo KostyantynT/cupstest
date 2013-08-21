@@ -7,6 +7,13 @@
 <body>
 	<p>
 	<h1>42 Coffee Cups Test Assignment</h1>
+	<div class="menu">
+		{% if user.is_authenticated %}
+			<a href="{% url 'auth_logout_next' request.path %}">Logout</a>
+		{% else %}
+			<a href="{% url 'django.contrib.auth.views.login'%}?next={{request.path}}">Login</a>
+		{% endif %}
+	</div>
 	</p>
 	<div class="container">
 		{% block content %} 

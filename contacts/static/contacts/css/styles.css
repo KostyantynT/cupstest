@@ -24,6 +24,12 @@ p{
 	clear:both;
 }
 
+.menu{
+	position:absolute;
+	right:100px;
+	top:25px;
+}
+
 table{
 	width:100%;
 }

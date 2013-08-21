@@ -10,6 +10,11 @@ from django.views import generic
 class IndexView(generic.DetailView):
     model = Contact
     template_name='contacts/index.html'
+    
+    def get_queryset(self):
+        if self.kwargs.get("pk") is None:
+            self.kwargs["pk"]=1
+        return Contact.objects.filter(pk=self.kwargs["pk"])
 
 class UpdateContactView(generic.UpdateView):
     model = Contact
