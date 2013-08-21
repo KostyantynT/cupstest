@@ -1,4 +1,12 @@
+PIL==1.1.7
 Django==1.5.2
+South==0.8.2
+argparse==1.2.1
+mock==1.0.1
+selenium==2.35.0
+wsgiref==0.1.2
+Django==1.5.2
+PIL==1.1.7
 South==0.8.2
 argparse==1.2.1
 mock==1.0.1

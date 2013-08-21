@@ -7,6 +7,8 @@ clean:
 
 # run unit tests
 test: clean
+	python manage.py reset contacts
 	python manage.py syncdb --noinput
 	python manage.py migrate contacts
+	python manage.py migrate middleware
 	python manage.py test contacts

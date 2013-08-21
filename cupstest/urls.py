@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from cupstest import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -20,6 +21,10 @@ urlpatterns = patterns('',
     #url(r'^login/$', 'django.contrib.auth.views.login', {'next': '/'}, name='auth_login'),
     #url(r'^login/(?P<next>.*)/$', 'django.contrib.auth.views.login', name='auth_login_next'),
     
-    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='auth_logout'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/contacts/'}, name='auth_logout'),
     url(r'^logout/(?P<next_page>.*)/$', 'django.contrib.auth.views.logout', name='auth_logout_next'),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.STATIC_ROOT}),
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}),
 )

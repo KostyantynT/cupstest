@@ -1,10 +1,11 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.db.models.fields.related import OneToOneField
+from cupstest.settings import MEDIA_URL
 
 # Create your models here.
 class ContactDetail(models.Model):
-    email=models.CharField(max_length=50)
+    email=models.EmailField(max_length=254)
     jabber=models.CharField(max_length=50)
     skype=models.CharField(max_length=50)
     other = models.CharField(max_length=256)
@@ -15,9 +16,12 @@ class Contact(models.Model):
     birthdate = models.DateTimeField()
     bio = models.CharField(max_length=256)
     contactdetails=OneToOneField(ContactDetail, primary_key=True)
-    picture = models.CharField(blank=True, max_length=256)
+    photo = models.ImageField("Photo", upload_to="images/", blank=True, null=True)
+   
+    def __unicode__(self):
+        return unicode(self.name + ' '+ self.surname)
     
-    def get_absolute_url(self):
-        return reverse('contact-detail', kwargs={'pk': self.pk})
+    def picture_url(self):
+        return (MEDIA_URL + self.picture.url) if self.picture else None
 
     

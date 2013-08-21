@@ -11,8 +11,14 @@
 			<p>
 				Date of birth <b>{{ contact.birthdate }}</b>
 			</p>
-			<p>Bio:</p>
-			<p>{{ contact.bio }}</p>
+			<p>Photo:</p>
+			<div class="photo">
+				{% if contact.photo %}
+					<img src="{{ contact.photo.url }}" alt="{{ contact.name }} {{ contact.surname }} Photo" />
+				{% else %}
+					<p>Photo was not uploaded yet</p>
+				{% endif %}
+			</div>
 		</div>
 
 		<div class='left'>
@@ -28,7 +34,14 @@
 			</p>
 			<p>Other contacts</p>
 			<p>{{ contact.contactdetails.other }}</p>
+			<p>Bio:</p>
+			<p>{{ contact.bio }}</p>
 		</div>
 	</div>
 	<div class='clear' />
+	<p style='text-align:right;'>
+		{% if user.is_authenticated %}
+			<a href="{% url 'edit' contact.pk %}">Edit</a>
+		{% endif %}
+	<p>
 {% endblock %}

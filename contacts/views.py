@@ -1,11 +1,9 @@
 # Create your views here.
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-
 from contacts.models import Contact
 from contacts.forms import ContactForm
 from django.views import generic
+from django.forms.models import modelform_factory
+from django.core.urlresolvers import reverse
 
 class IndexView(generic.DetailView):
     model = Contact
@@ -18,5 +16,18 @@ class IndexView(generic.DetailView):
 
 class UpdateContactView(generic.UpdateView):
     model = Contact
+    form_class = modelform_factory(model=Contact)
+    #form_class = ContactForm
     template_name = 'contacts/edit.html'
-    form_class = ContactForm
+
+    def get_success_url(self):
+        return reverse('index')
+        
+#     def modelform_valid(self, modelform):
+#         pk   = self.kwargs.get("pk")
+#         old = Contact.objects.get(pk=pk).picture
+#         #if old.
+#         self.modelform_object = modelform.save()
+#         if self.modelform_object.picture_url:
+#             pass#
+#         return redir(self.success_url)
