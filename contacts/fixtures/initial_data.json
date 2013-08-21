@@ -1,23 +1,35 @@
 [
 {
-    "pk": 1, 
-    "model": "contacts.contactdetail", 
-    "fields": {
-        "other": "other....", 
-        "jabber": "jabber", 
-        "email": "admin@admin.com", 
-        "skype": "skype"
-    }
+  "pk": 1, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "admin", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2013-08-14T12:21:35.633Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$Ybl8Q6kjjhhU$XxLqIcxhws5o9LdXtw45GHkiTj0tITPung82GZCZRtM=", 
+    "email": "admin@admin.com", 
+    "date_joined": "2013-08-13T23:54:36.596Z"
+  }
 },
 {
     "pk": 1, 
     "model": "contacts.contact", 
     "fields": {
-        "bio": "bio info", 
+        "bio": "some bio notest", 
         "surname": "Surname", 
         "name": "Name", 
-        "birthdate": "1982-08-16T21:39:37Z", 
-        "photo": "images/dave_web_gross.jpg"
+        "photo": "images/dave_web_gross.jpg", 
+        "birthdate": "1982-08-01T17:37:31Z", 
+        "other": "other....", 
+        "skype": "skype", 
+        "jabber": "jabber", 
+        "email": "admin@admin.com"
     }
 }
 ]

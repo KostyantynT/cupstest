@@ -139,7 +139,7 @@ INSTALLED_APPS = (
     'tests',
     'contacts',
     'middleware',
-    'cupstest'
+    'cupstest',
 )
 
 # A sample logging configuration. The only tangible logging

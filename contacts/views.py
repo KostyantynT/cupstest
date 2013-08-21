@@ -1,6 +1,5 @@
 # Create your views here.
 from contacts.models import Contact
-from contacts.forms import ContactForm
 from django.views import generic
 from django.forms.models import modelform_factory
 from django.core.urlresolvers import reverse
