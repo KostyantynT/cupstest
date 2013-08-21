@@ -29,8 +29,8 @@ class ContactModelTest(TestCase):
         
         self.assertEqual(len(all_contacts), 1)
         
-        self.assertEqual(db_contact.contactdetails.jabber, 'jabber')
-        self.assertEqual(db_contact.contactdetails.email, 'admin@admin.com')
-        self.assertEqual(db_contact.contactdetails.skype, 'skype')
-        self.assertEqual(db_contact.contactdetails.other, 'bla-bla-bla')
+        self.assertEqual(db_contact.jabber, 'jabber')
+        self.assertEqual(db_contact.email, 'admin@admin.com')
+        self.assertEqual(db_contact.skype, 'skype')
+        self.assertEqual(db_contact.other, 'bla-bla-bla')
         
