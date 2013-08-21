@@ -1,12 +1,50 @@
-{% extends "__base.html" %}
-{% block content %}
+{% extends "__base.html" %} {% block content %}
 
-<form action="{{ action }}" method="POST">
-  {% csrf_token %}
-  {% for field in form %}
-  {{ field }}
-  {% endfor %}
-  <input type="submit" value="Save" />
+<form action="{{ action }}" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<div>
+		<div class='left'>
+			<p>
+				Name <b>{{ contact.name }}</b>
+			</p>
+			<p>
+				Last name&nbsp; <b>{{ contact.surname }}</b>
+			</p>
+			<p>
+				Date of birth <b>{{ contact.birthdate }}</b>
+			</p>
+			<p>Photo:</p>
+			<div class="photo">
+				{% if contact.photo %}
+					<img src="{{ contact.photo.url }}" alt="{{ contact.name }} {{ contact.surname }} Photo" />
+				{% else %}
+					<p>Photo was not uploaded yet</p>
+				{% endif %}
+			</div>
+			{{ modelform.photo }}
+		</div>
+
+		<div class='left'>
+			<p>Contacts</p>
+			<p>
+				Email <b>{{ contact.contactdetails.email }}</b>
+			</p>
+			<p>
+				Jabber <b>{{ contact.contactdetails.jabber }}</b>
+			</p>
+			<p>
+				Skype <b>{{ contact.contactdetails.skype }}</b>
+			</p>
+			<p>Other contacts</p>
+			<p>{{ contact.contactdetails.other }}</p>
+			<p>Bio:</p>
+			<p>{{ contact.bio }}</p>
+		</div>
+	</div>
+	<div class='clear' />
+
+	<input type="submit" value="Save" />
 </form>
 
 {% endblock %}
