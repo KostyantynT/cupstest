@@ -1,50 +1,43 @@
 {% extends "__base.html" %} {% block content %}
-
+{%load contacts_filters %}
 <form action="{{ action }}" method="POST" enctype="multipart/form-data">
 	{% csrf_token %}
-	{{ form.as_p }}
+	
 	<div>
-		<div class='left'>
-			<p>
-				Name <b>{{ contact.name }}</b>
-			</p>
-			<p>
-				Last name&nbsp; <b>{{ contact.surname }}</b>
-			</p>
-			<p>
-				Date of birth <b>{{ contact.birthdate }}</b>
-			</p>
-			<p>Photo:</p>
-			<div class="photo">
-				{% if contact.photo %}
-					<img src="{{ contact.photo.url }}" alt="{{ contact.name }} {{ contact.surname }} Photo" />
-				{% else %}
-					<p>Photo was not uploaded yet</p>
+		<div class="left">
+		
+	 	{% for field in form %}
+	 		<div class="fieldWrapper">
+	 			{% if field.errors %}
+	 			<p>
+					{{ field.errors }}
+				</p>
 				{% endif %}
-			</div>
-			{{ modelform.photo }}
-		</div>
-
-		<div class='left'>
-			<p>Contacts</p>
-			<p>
-				Email <b>{{ contact.contactdetails.email }}</b>
-			</p>
-			<p>
-				Jabber <b>{{ contact.contactdetails.jabber }}</b>
-			</p>
-			<p>
-				Skype <b>{{ contact.contactdetails.skype }}</b>
-			</p>
-			<p>Other contacts</p>
-			<p>{{ contact.contactdetails.other }}</p>
-			<p>Bio:</p>
-			<p>{{ contact.bio }}</p>
-		</div>
+				<p>
+					<span>{{ field.label_tag }}</span> {{ field }}
+				</p>
+	 			{% if field|is_File %}
+					<div class="photo">
+					{% if contact.photo %}
+						<img src="{{ contact.photo.url }}" alt="{{ contact.name }} {{ contact.surname }} Photo" />
+					{% else %}
+						<p>Photo was not uploaded yet</p>
+					{% endif %}
+					</div>
+				{% endif %}
+				</div>
+				{% if forloop.counter == 4 %}
+					</div><div class="left">
+					<p>Contacts</p>
+				{% endif %}
+	    {% endfor %}
+	    </div>
 	</div>
-	<div class='clear' />
-
-	<input type="submit" value="Save" />
+	<div class="clear" />
+	<p>
+		<input type="submit" value="Save" />
+		<a href="{% url 'index' contact.pk %}">Cancel</a>
+	</p>
 </form>
 
 {% endblock %}

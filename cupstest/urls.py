@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, include, url
 from cupstest import settings
-
+from contacts.views import IndexView
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^$', IndexView.as_view(), name='contact_index'),
     url(r'^contacts/', include('contacts.urls')),
     url(r'^middleware/', include('middleware.urls')),
     # Examples:

@@ -29,7 +29,18 @@ p{
 	right:100px;
 	top:25px;
 }
+.fieldWrapper textarea{
+	display:block;
+}
 
+.fieldWrapper span{
+	width:100px;
+	display:inline-block;
+	text-align:right;
+}
+.fieldWrapper span:after{
+		content:':';
+}
 .photo{
 	display:inline-block;
 }
