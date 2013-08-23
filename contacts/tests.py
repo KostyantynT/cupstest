@@ -5,7 +5,12 @@ from django.utils import timezone
 from cupstest import settings
 
 class ContactModelTest(TestCase):
+    fixtures=['initial_data.json']
     def test_creating_a_new_contact_and_save_it_to_db(self):
+        #check for one contact from fixture
+        all_contacts = Contact.objects.all()
+        self.assertEqual(len(all_contacts), 1)
+        
         #create a new contact
         contact = Contact()
         contact.name = 'Kostyantyn'
@@ -21,15 +26,15 @@ class ContactModelTest(TestCase):
         contact.save()
         
         all_contacts = Contact.objects.all()
-        self.assertEqual(len(all_contacts), 1)
-        db_contact = all_contacts[0]
+        self.assertEqual(len(all_contacts), 2)
+        db_contact = all_contacts.get(pk=contact.pk)
         
         self.assertEqual(db_contact.name, 'Kostyantyn')
         self.assertEqual(db_contact.surname, 'Surename')
         self.assertEqual(db_contact.birthdate, contact.birthdate)
         self.assertEqual(db_contact.bio, 'My bio')
         
-        self.assertEqual(len(all_contacts), 1)
+        self.assertEqual(len(all_contacts), 2)
         
         self.assertEqual(db_contact.jabber, 'jabber')
         self.assertEqual(db_contact.email, 'admin@admin.com')
