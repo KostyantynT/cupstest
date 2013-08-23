@@ -29,6 +29,10 @@ p{
 	right:100px;
 	top:25px;
 }
+.errorlist{
+	color:red;
+	font-size:0.8em;
+}
 .fieldWrapper textarea{
 	display:block;
 }

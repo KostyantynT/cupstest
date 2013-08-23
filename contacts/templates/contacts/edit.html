@@ -8,12 +8,10 @@
 		
 	 	{% for field in form %}
 	 		<div class="fieldWrapper">
-	 			{% if field.errors %}
-	 			<p>
-					{{ field.errors }}
-				</p>
-				{% endif %}
 				<p>
+					{% if field.errors %}
+							{{ field.errors }}
+					{% endif %}
 					<span>{{ field.label_tag }}</span> {{ field }}
 				</p>
 	 			{% if field|is_File %}
