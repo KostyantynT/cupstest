@@ -8,8 +8,6 @@ class CpntextProcessorTest(TestCase):
         c = Client()
         response = c.get(reverse('list'))
         #lets check some wariable
-        mr = response.context['MEDIA_ROOT']
-        self.assertNotEqual(mr, None)
-        #lets check that out Apps contains the current app
-        apps = response.context['INSTALLED_APPS']
-        self.assertIn("cupstest", apps)
+        sett = response.context['settings']
+        self.assertTrue(hasattr(sett, 'MEDIA_ROOT'))
+        self.assertTrue(hasattr(sett, 'STATIC_ROOT'))
